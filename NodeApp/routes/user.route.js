@@ -41,7 +41,7 @@ userRoutes.route('/edit/:id').get(function (req, res) {
 	})
 });
 
-userRoutes.route('/update/:id').post(function (req, res) {
+userRoutes.route('/update/:id').put(function (req, res) {
 	const id = parseInt(req.params.id)
   	const { user_name } = req.body
 	pool.query(
@@ -55,7 +55,7 @@ userRoutes.route('/update/:id').post(function (req, res) {
 	)
 });
 
-userRoutes.route('/delete/:id').get(function (req, res) {
+userRoutes.route('/delete/:id').delete(function (req, res) {
 	const id = parseInt(req.params.id)
 	pool.query('DELETE FROM users WHERE user_id = $1', [id], (error) => {
 		if (error) {

@@ -15,7 +15,7 @@ export class UserService {
 		const obj = {
 			user_name: user_name
 		};
-		this.http.post(this.BASE_URL + '/user/add',obj).subscribe(res => {
+		this.http.post(this.BASE_URL + '/user/add', obj).subscribe(res => {
 			console.log(res, 'Done')
 			this.router.navigate(['/']);
 		});
@@ -29,12 +29,12 @@ export class UserService {
 		const obj = {
 			user_name: user_name
 		};
-		this.http.post(this.BASE_URL + '/user/update/' + id, obj).subscribe(res => {
+		this.http.put(this.BASE_URL + '/user/update/' + id, obj).subscribe(res => {
 			console.log('Done')
 			this.router.navigate(['user']);
 		});
 	}
 	deleteUser(id) {
-		return this.http.get(this.BASE_URL + '/user/delete/' + id);
+		return this.http.delete(this.BASE_URL + '/user/delete/' + id);
 	}
 }
